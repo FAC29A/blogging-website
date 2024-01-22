@@ -1,0 +1,21 @@
+:root{
+  --page-color: #8dfbd1;  
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+}
+
+button{
+    width:100px;
+}
+
+body{
+    background-color: var(--page-color);
+}
+article{
+    display:flex;
+    flex-direction: column;
+}
+.blog-post
