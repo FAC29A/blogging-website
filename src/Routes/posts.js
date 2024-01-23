@@ -18,6 +18,16 @@ router.post("/", (request, response) => {
   response.redirect("/posts");
 });
 
+router.post("/delete/:id", (req, res) => {
+    const postId = Number(req.params.id);
+    const index = blogPosts.findIndex(post => post.postId === postId);
+    if(index > -1) {
+      blogPosts.splice(index, 1);
+      res.redirect('/posts');
+    } else {
+      res.status(404).send('Post not found');
+    }
+})
 
 module.exports = {
     router: router, 

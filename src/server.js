@@ -1,7 +1,7 @@
 const express = require("express");
 const server = express();
 const bodyParser = express.urlencoded();
-const { home } = require("./template.js");
+// const { home } = require("./template.js");
 const staticHandler = express.static("public");
 
 //routes
@@ -12,5 +12,6 @@ server.use(bodyParser);
 server.use(staticHandler);
 server.use("/", homeRoutes);
 server.use("/posts", postRoutes.router);
+
 
 module.exports = server;
