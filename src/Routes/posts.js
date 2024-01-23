@@ -17,4 +17,7 @@ router.post("/", (request, response) => {
   response.redirect("/posts");
 });
 
-module.exports = router;
+module.exports = {
+    router: router, 
+    blogPosts: blogPosts
+}

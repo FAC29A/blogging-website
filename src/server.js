@@ -13,7 +13,7 @@ const postRoutes = require("./Routes/posts");
 server.use(bodyParser);
 server.use(staticHandler);
 server.use("/", homeRoutes);
-server.use("/posts", postRoutes);
+server.use("/posts", postRoutes.router);
 
 // server.get("/", (request, response) => {
 //     response.send(`
