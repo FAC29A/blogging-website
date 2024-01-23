@@ -1,5 +1,4 @@
-//for functions
-const repetitiveHtml = /*html*/ `
+const initialHTML = /*html*/ `
 <h1>Blog Posts</h1>
 <form action="/posts" method="POST">
   <div class="input">
@@ -14,23 +13,23 @@ const repetitiveHtml = /*html*/ `
 </form>`;
 
 function home() {
-  const title = "Blogging Website Home";
+  const title = 'Blogging Website Home';
   const content =
     /*html*/
     `
-      ${repetitiveHtml} 
+    ${initialHTML} 
       `;
   return layout(title, content);
 }
 
 function posts(blogPosts) {
-  const title = "Post Page";
+  const title = 'Post Page';
   const content =
     /*html*/
     ` 
-    ${repetitiveHtml}    
+    ${initialHTML}    
     <div class="posted-blogs">
-    ${blogPosts.map(postItem).join("")}
+    ${blogPosts.map(postItem).join('')}
     </div>
     `;
 
@@ -39,9 +38,13 @@ function posts(blogPosts) {
 
 function postItem(post) {
   return /*html*/ `
-         <article>
+        <article id="${post.postId}">
         <div class="person-name"><h2>${post.name}</h2></div> 
         <div class="blog-post">${post.blogpost}</div>
+        <div class="date">${post.displayDate}</div>
+        <form action="/posts/delete/${post.postId}"" method="post">
+          <button type="submit">Delete</div>
+        </form>
         </article>
     `;
 }
