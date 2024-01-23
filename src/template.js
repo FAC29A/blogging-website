@@ -32,7 +32,6 @@ function posts(blogPosts) {
     <div class="posted-blogs">
     ${blogPosts.map(postItem).join("")}
     </div>
-    
     `;
 
   return layout(title, content);
