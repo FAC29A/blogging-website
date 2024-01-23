@@ -1,19 +1,20 @@
-const express = require('express')
+const express = require("express");
 const router = express.Router();
+const { posts } = require("../template");
 const blogPosts = [];
 
 // add router server routes for posts
 
 router.get("/", (request, response) => {
-    const list = blogPosts.map((post) => {
-        return `
+  const list = blogPosts.map((post) => {
+    return `
         <article>
         <div class="person-name"><h2>${post.name}</h2></div> 
         <div class="blog-post">${post.blogpost}</div>
         </article>
         `;
-      });
-    response.send(`
+  });
+  response.send(`
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -39,16 +40,14 @@ router.get("/", (request, response) => {
     ${list.join("")}
     </div>
     </body>
-    </html>`
-)
-})
-
-router.post("/", (request, response) => {
-    const name = request.body.name;
-    const blogpost = request.body.blogpost;
-    blogPosts.push({ name, blogpost }); // 
-    response.redirect("/posts");
+    </html>`);
 });
 
-module.exports = router
+router.post("/", (request, response) => {
+  const name = request.body.name;
+  const blogpost = request.body.blogpost;
+  blogPosts.push({ name, blogpost }); //
+  response.redirect("/posts");
+});
 
+module.exports = router;
