@@ -1,15 +1,14 @@
 const express = require("express");
 const server = express();
 const bodyParser = express.urlencoded();
+const { home } = require("./template.js");
 const staticHandler = express.static("public");
-
 
 //require home and posts modules and edit e.g.
 
-
 //routes
-const homeRoutes = require('./Routes/home');
-const postRoutes = require('./Routes/posts');
+const homeRoutes = require("./Routes/home");
+const postRoutes = require("./Routes/posts");
 
 server.use(bodyParser);
 server.use(staticHandler);
@@ -44,12 +43,11 @@ server.use("/posts", postRoutes.router);
 // )
 // })
 
-
 // server.get("/posts", (request, response) => {
 //     const list = blogPosts.map((post) => {
 //         return `
 //         <article>
-//         <div class="person-name"><h2>${post.name}</h2></div> 
+//         <div class="person-name"><h2>${post.name}</h2></div>
 //         <div class="blog-post">${post.blogpost}</div>
 //         </article>
 //         `;
@@ -87,7 +85,7 @@ server.use("/posts", postRoutes.router);
 // server.post("/posts", bodyParser, (request, response) => {
 //     const name = request.body.name;
 //     const blogpost = request.body.blogpost;
-//     blogPosts.push({ name, blogpost }); // 
+//     blogPosts.push({ name, blogpost }); //
 //     response.redirect("/posts");
 // });
 
