@@ -3,8 +3,6 @@ const router = express.Router();
 const { posts } = require("../template");
 const blogPosts = [];
 
-// add router server routes for posts
-
 router.get("/", (request, response) => {
   const body = posts(blogPosts);
   response.send(body);
