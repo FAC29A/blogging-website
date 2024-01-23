@@ -17,7 +17,7 @@ server.get("/", (request, response) => {
     <title>Blogging Website</title>
     </head>
     <body>
-    <h1>Your Blog Posts!</h1>
+    <h1>Blog Here</h1>
     <form action="/posts" method="POST">
       <div class="input">
         <label for="name">Name:</label><br>
@@ -33,8 +33,6 @@ server.get("/", (request, response) => {
     </html>`
 )
 })
-
-
 
 
 server.get("/posts", (request, response) => {
@@ -56,7 +54,7 @@ server.get("/posts", (request, response) => {
     <title>Blogging Website</title>
     </head>
     <body>
-    <h1>Blog Here</h1>
+    <h1>Blog Posts</h1>
     <form action="/posts" method="POST">
       <div class="input">
         <label for="name">Name:</label><br>
