@@ -11,9 +11,13 @@ router.get("/", (request, response) => {
 router.post("/", (request, response) => {
   const name = request.body.name;
   const blogpost = request.body.blogpost;
-  blogPosts.push({ name, blogpost }); //
+  const date = new Date();
+  let displayDate = date.toDateString();
+  const postId = date.getTime();
+  blogPosts.push({ name, blogpost, postId, displayDate }); 
   response.redirect("/posts");
 });
+
 
 module.exports = {
     router: router, 

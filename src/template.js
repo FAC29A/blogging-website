@@ -1,3 +1,5 @@
+const deletePost = require('./delete');
+
 //for functions
 const repetitiveHtml = /*html*/ `
 <h1>Blog Posts</h1>
@@ -14,7 +16,7 @@ const repetitiveHtml = /*html*/ `
 </form>`;
 
 function home() {
-  const title = "Blogging Website Home";
+  const title = 'Blogging Website Home';
   const content =
     /*html*/
     `
@@ -24,13 +26,13 @@ function home() {
 }
 
 function posts(blogPosts) {
-  const title = "Post Page";
+  const title = 'Post Page';
   const content =
     /*html*/
     ` 
     ${repetitiveHtml}    
     <div class="posted-blogs">
-    ${blogPosts.map(postItem).join("")}
+    ${blogPosts.map(postItem).join('')}
     </div>
     
     `;
@@ -40,9 +42,11 @@ function posts(blogPosts) {
 
 function postItem(post) {
   return /*html*/ `
-         <article>
+        <article id="${post.postId}">
         <div class="person-name"><h2>${post.name}</h2></div> 
         <div class="blog-post">${post.blogpost}</div>
+        <div class="date">${post.displayDate}</div>
+        <button type="button" onclick="deletePost('${post.postId}')">Delete</div>
         </article>
     `;
 }

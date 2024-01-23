@@ -1,10 +1,12 @@
-const  blogPosts  = require('./Routes/posts')
+// const  blogPosts  = require('./Routes/posts')
 
-function delete(){
-    //when delete button pressed trigger post?
 
-    //find index of post in array?
+// function deletePost(postId){
+//     router.delete("/delete", (request, response) => {
+//         let index = blogPosts.findIndex(postId);
+//         return blogPosts = blogPosts.slice(0,index).concat(blogPosts.slice(index+1));
+//         response.redirect("/posts");
+// })
+// }
 
-    //slice and concat array to 
-
-}
+// module.exports = deletePost
