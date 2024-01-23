@@ -30,12 +30,21 @@ function posts(blogPosts) {
     ` 
     ${repetitiveHtml}    
     <div class="posted-blogs">
-    ${list.join("")}
+    ${blogPosts.map(postItem).join("")}
     </div>
     
     `;
 
   return layout(title, content);
+}
+
+function postItem(post) {
+  return /*html*/ `
+         <article>
+        <div class="person-name"><h2>${post.name}</h2></div> 
+        <div class="blog-post">${post.blogpost}</div>
+        </article>
+    `;
 }
 
 function layout(title, content) {
