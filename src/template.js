@@ -4,7 +4,7 @@ function home(blogPosts) {
   const content =
     /*html*/
     ` 
-    <h1>Blog Here</h1>
+    <h1>Blog Posts</h1>
     <form action="/posts" method="POST">
       <div class="input">
         <label for="name">Name:</label><br>
@@ -15,7 +15,12 @@ function home(blogPosts) {
         <textarea name="blogpost" type="textarea" rows="4" columns="50"></textarea>
       </div class="input">
         <button type="submit">Submit</button>
-    </form>`;
+    </form>
+    <div class="posted-blogs">
+    ${list.join("")}
+    </div>
+    
+    `;
 
   return layout(title, content);
 }

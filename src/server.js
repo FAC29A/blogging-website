@@ -21,7 +21,7 @@ server.get("/posts", (request, response) => {
         </article>
         `;
   });
-  response.send(`
+  response.send(/*html*/ `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -43,9 +43,7 @@ server.get("/posts", (request, response) => {
       </div class="input">
         <button type="submit">Submit</button>
     </form>
-    <div class="posted-blogs">
-    ${list.join("")}
-    </div>
+   
     </body>
     </html>`);
 });
