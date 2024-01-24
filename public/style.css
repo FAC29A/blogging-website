@@ -58,3 +58,5 @@ body{
 article{
     
 }
+
+/* Fix issue: when the first post is generated in the HTML, the article is created nested into a div, all the following posts are created in a new article, but outside the div
