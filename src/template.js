@@ -1,16 +1,19 @@
 const initialHTML = /*html*/ `
-<h1>Blog Posts</h1>
-<form action="/posts" method="POST">
-  <div class="input">
-    <label for="name">Name:</label><br>
-    <input name="name" type="text">
+<div class="container">
+  <div class="title">
+    <h1>Blog Posts</h1>
+    <h2>Post anything you like</h2>
   </div>
-  <div class="input">
-    <label for="blogpost">Type your post here:</label><br>
-    <textarea name="blogpost" type="textarea" rows="4" columns="50"></textarea>
-  </div class="input">
-    <button type="submit">Submit</button>
-</form>`;
+  <form action="/posts" method="POST">
+    <div>
+      <input class="input" name="name" type="text" placeholder="Nickname">
+    </div>
+    <div>
+      <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here"></textarea>
+    </div>
+      <button class="submit-btn" type="submit">Submit</button>
+  </form>
+</div>`;
 
 function home() {
   const title = 'Blogging Website Home';
@@ -38,7 +41,7 @@ function posts(blogPosts) {
 
 function postItem(post) {
   return /*html*/ `
-        <article id="${post.postId}">
+        <article class="posts" id="${post.postId}">
         <div class="person-name"><h2>${post.name}</h2></div> 
         <div class="blog-post">${post.blogpost}</div>
         <div class="date">${post.displayDate}</div>
