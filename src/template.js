@@ -1,5 +1,11 @@
-const initialHTML = /*html*/ `
-<h1>Blog Posts</h1>
+const { request } = require("express");
+
+function home() {
+  const title = "Blogging Website Home";
+  const content =
+    /*html*/
+    `
+    <h1>Blog Posts</h1>
 <form action="/posts" method="POST">
   <div class="input">
     <label for="name">Name:</label><br>
@@ -10,26 +16,32 @@ const initialHTML = /*html*/ `
     <textarea name="blogpost" type="textarea" rows="4" columns="50"></textarea>
   </div class="input">
     <button type="submit">Submit</button>
-</form>`;
-
-function home() {
-  const title = 'Blogging Website Home';
-  const content =
-    /*html*/
-    `
-    ${initialHTML} 
+</form>
       `;
   return layout(title, content);
 }
 
-function posts(blogPosts) {
-  const title = 'Post Page';
+function posts(blogPosts, errorsObject = {}, requestBody = {}) {
+  const title = "Post Page";
   const content =
     /*html*/
     ` 
-    ${initialHTML}    
+    <h1>Blog Posts</h1>
+    <form action="/posts" method="POST">
+        <div class="input">
+            <label for="name">Name:</label><br>
+            <input name="name" type="text">
+            ${validation(errorsObject.nameError)}
+        </div>
+        <div class="input">
+            <label for="blogpost">Type your post here:</label><br>
+            <textarea name="blogpost" type="textarea" rows="4" columns="50"></textarea>
+            ${validation(errorsObject.postError)}
+        </div class="input">
+        <button type="submit">Submit</button>
+    </form>   
     <div class="posted-blogs">
-    ${blogPosts.map(postItem).join('')}
+    ${blogPosts.map(postItem).join("")}
     </div>
     `;
 
@@ -39,8 +51,8 @@ function posts(blogPosts) {
 function postItem(post) {
   return /*html*/ `
         <article id="${post.postId}">
-        <div class="person-name"><h2>${post.name}</h2></div> 
-        <div class="blog-post">${post.blogpost}</div>
+        <div class="person-name"><h2>${sanitize(post.name)}</h2></div> 
+        <div class="blog-post">${sanitize(post.blogpost)}</div>
         <div class="date">${post.displayDate}</div>
         <form action="/posts/delete/${post.postId}"" method="post">
           <button type="submit">Delete</div>
@@ -64,5 +76,17 @@ function layout(title, content) {
     </html>
     `;
 }
+function sanitize(unsafe) {
+  return unsafe.replace(/</g, "&lt;");
+}
 
+function validation(errorMessage) {
+  if (errorMessage) {
+    return /*html*/ `
+        <span>${errorMessage}</span>
+        `;
+  } else {
+    return "";
+  }
+}
 module.exports = { posts, home };
