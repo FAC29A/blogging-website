@@ -45,8 +45,8 @@ function postItem(post) {
         <div class="person-name"><h2>${post.name}</h2></div> 
         <div class="blog-post">${post.blogpost}</div>
         <div class="date">${post.displayDate}</div>
-        <form action="/posts/delete/${post.postId}"" method="post">
-          <button type="submit">Delete</div>
+        <form action="/posts/delete/${post.postId}" method="post">
+          <button type="submit">Delete</button>
         </form>
         </article>
     `;
