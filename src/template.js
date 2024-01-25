@@ -25,14 +25,31 @@ function home() {
   return layout(title, content);
 }
 
-function posts(blogPosts) {
-  const title = 'Post Page';
+function posts(blogPosts, errorsObject = {}, requestBody = {}) {
+  const title = "Post Page";
   const content =
     /*html*/
     ` 
-    ${initialHTML}    
+    <h1>Blog Posts</h1>
+    <form action="/posts" method="POST">
+        <div class="input">
+            <label for="name">Name:</label><br>
+            <input name="name" type="text" value="${
+              requestBody.name ? sanitize(requestBody.name) : ""
+            }">
+            ${validation(errorsObject.nameError)}
+        </div>
+        <div class="input">
+            <label for="blogpost">Type your post here:</label><br>
+            <textarea name="blogpost" type="textarea" rows="4" columns="50">${
+              requestBody.blogpost ? sanitize(requestBody.blogpost) : ""
+            }</textarea>
+            ${validation(errorsObject.postError)}
+        </div class="input">
+        <button type="submit">Submit</button>
+    </form>   
     <div class="posted-blogs">
-    ${blogPosts.map(postItem).join('')}
+    ${blogPosts.map(postItem).join("")}
     </div>
     `;
 
@@ -67,5 +84,17 @@ function layout(title, content) {
     </html>
     `;
 }
+function sanitize(unsafe) {
+  return unsafe.replace(/</g, "&lt;");
+}
 
+function validation(errorMessage) {
+  if (errorMessage) {
+    return /*html*/ `
+        <span>${errorMessage}</span>
+        `;
+  } else {
+    return "";
+  }
+}
 module.exports = { posts, home };
