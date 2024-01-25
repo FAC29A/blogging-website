@@ -1,5 +1,5 @@
-:root{
-  --page-color: #8dfbd1;  
+:root {
+    --page-color: #8dfbd1;
 }
 
 * {
@@ -8,10 +8,12 @@
     font-family: 'Archivo', sans-serif;
     box-sizing: border-box;
 }
+
 .container {
     width: 380px;
     margin: auto;
 }
+
 .title {
     text-align: center;
     margin-bottom: 2em;
@@ -22,11 +24,6 @@
     margin-bottom: 0.3em;
 }
 
-form {
-    width: 100%;
-    margin-bottom: 2em;
-}
-
 .input {
     width: 100%;
     padding: 16px;
@@ -35,25 +32,63 @@ form {
     background-color: #F0F0F0;
     color: #21221D;
 }
+
 .submit-btn {
-    width:150px;
+    width: 150px;
     padding: 16px;
+    margin-bottom: 1rem;
 }
+
 .posted-blogs {
     background-color: black;
     padding: 2em;
+    display: grid;
+    gap: 1rem;
 }
+
 .posts {
     background-color: white;
 }
 
-button{
-    width:100px;
-    
+button {
+    width: 100px;
+
 }
 
-body{
+body {
     background-color: var(--page-color);
 }
 
 
+
+.post-header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+.post-header-left {
+
+    display: flex;
+    gap: 2rem;
+
+}
+
+.post-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.post-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    width: 100%;
+}
+
+.blog-post {
+    word-break: break-word;
+}

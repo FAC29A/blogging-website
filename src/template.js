@@ -59,12 +59,20 @@ function posts(blogPosts, errorsObject = {}, requestBody = {}) {
 function postItem(post) {
   return /*html*/ `
         <article class="posts" id="${post.postId}">
-        <div class="person-name"><h2>${post.name}</h2></div> 
-        <div class="blog-post">${post.blogpost}</div>
-        <div class="date">${post.displayDate}</div>
-        <form action="/posts/delete/${post.postId}" method="post">
-          <button type="submit">Delete</button>
-        </form>
+          <div class="post-header">
+            <div class="post-header-left">
+              <div class="person-name"><h3>${post.name}</h3></div> 
+              <div class="date">${post.displayDate}</div>
+            </div>
+            <div class="post-header-right">
+              <form action="/posts/delete/${post.postId}" method="post">
+                <button type="submit">Delete</button>
+              </form>
+            </div>            
+          </div>
+          <div class="post-body">
+            <p class="blog-post">${post.blogpost}</p>
+          </div>
         </article>
     `;
 }
