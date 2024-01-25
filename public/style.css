@@ -2,20 +2,58 @@
   --page-color: #8dfbd1;  
 }
 
-form{
-    display:flex;
-    flex-direction: column;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Archivo', sans-serif;
+    box-sizing: border-box;
+}
+.container {
+    width: 380px;
+    margin: auto;
+}
+.title {
+    text-align: center;
+    margin-bottom: 2em;
+    padding-top: 3em;
+}
+
+.title h1 {
+    margin-bottom: 0.3em;
+}
+
+form {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    color: #21221D;
+}
+.submit-btn {
+    width:150px;
+    padding: 16px;
+}
+.posted-blogs {
+    background-color: black;
+    padding: 2em;
+}
+.posts {
+    background-color: white;
 }
 
 button{
     width:100px;
+    
 }
 
 body{
     background-color: var(--page-color);
 }
-article{
-    display:flex;
-    flex-direction: column;
-}
-.blog-post
+
+
