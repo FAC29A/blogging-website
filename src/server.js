@@ -12,6 +12,10 @@ server.use(bodyParser);
 server.use(staticHandler);
 server.use("/", homeRoutes);
 server.use("/posts", postRoutes.router);
-
+server.use((req, res) => {
+  const path = require("path");
+  const filePath = path.join(__dirname, "../views/404.html");
+  res.sendFile(filePath);
+});
 
 module.exports = server;
