@@ -3,7 +3,7 @@ const router = express.Router();
 const { home } = require("../template");
 
 router.get("/", (request, response) => {
-  response.render("index");
+  response.render("index", { title: "Home" });
   // const body = home();
   // response.send(body);
 });
