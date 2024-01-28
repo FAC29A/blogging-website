@@ -1,10 +1,6 @@
 <!doctype html>
 <html>
-  <head>
-    <title>${title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
-  </head>
+  <%- include("./partials/head.ejs") %>
   <body>
     <div class="container">
         <div class="title">
@@ -13,22 +9,49 @@
         </div>
         <form action="/posts" method="POST">
           <div>
-            <input class="input" name="name" type="text" placeholder="Nickname" value="${
-              requestBody.name ? sanitize(requestBody.name) : ""
-            }">
-                  ${validation(errorsObject.nameError)}
+            <input class="input" name="name" type="text" placeholder="Nickname">
+            <span><%= errorsObject.nameError %></span>
+                  
           </div>
           <div>  
-            <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here">${
-              requestBody.blogpost ? sanitize(requestBody.blogpost) : ""
-            }</textarea>
-                  ${validation(errorsObject.postError)}
+            <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here"></textarea>
+            <span><%= errorsObject.postError %></span>
+                 
           </div>
           <button class="submit-btn" type="submit">Submit</button>
         </form> 
       </div>  
         <div class="posted-blogs">
-        ${blogPosts.map(postItem).join("")}
+            <% if (blogPosts.length > 0) { %>
+                <% blogPosts.forEach(post => { %>
+                    <article class="posts" id="<%= post.postId %>">
+                        <div class="post-header">
+                          <div class="post-header-left">
+                            <div class="person-name">
+                                <h3><%= post.name %></h3>
+                            </div> 
+                            <div class="date"><%= post.displayDate %></div>
+                          </div>
+                          <div class="post-header-right">
+                            <form action="/posts/delete/<%= post.postId %>" method="post">
+                              <button type="submit">Delete</button>
+                            </form>
+                          </div>            
+                        </div>
+                        <div class="post-body">
+                          <p class="blog-post"><%= post.blogpost %></p>
+                        </div>
+                      </article>
+                <% }) %>
+
+            <% } %>
+
+           
+       
         </div>
+    <script>
+     
+    </script>
+    
   </body>
 </html>

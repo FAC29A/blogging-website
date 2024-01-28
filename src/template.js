@@ -1,5 +1,5 @@
 function home() {
-  const title = 'Blogging Website Home';
+  const title = "Blogging Website Home";
   const content =
     /*html*/
     `
@@ -24,6 +24,7 @@ function home() {
 
 function posts(blogPosts, errorsObject = {}, requestBody = {}) {
   const title = "Post Page";
+
   const content =
     /*html*/
     ` 
@@ -35,14 +36,14 @@ function posts(blogPosts, errorsObject = {}, requestBody = {}) {
     <form action="/posts" method="POST">
       <div>
         <input class="input" name="name" type="text" placeholder="Nickname" value="${
-                requestBody.name ? sanitize(requestBody.name) : ""
-              }">
+          requestBody.name ? sanitize(requestBody.name) : ""
+        }">
               ${validation(errorsObject.nameError)}
       </div>
       <div>  
         <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here">${
-                requestBody.blogpost ? sanitize(requestBody.blogpost) : ""
-              }</textarea>
+          requestBody.blogpost ? sanitize(requestBody.blogpost) : ""
+        }</textarea>
               ${validation(errorsObject.postError)}
       </div>
       <button class="submit-btn" type="submit">Submit</button>
