@@ -9,12 +9,12 @@
         </div>
         <form action="/posts" method="POST">
           <div>
-            <input class="input" name="name" type="text" placeholder="Nickname">
+            <input class="input" name="name" type="text" placeholder="Nickname" value="<%- requestBody.name ? helper.sanitize(requestBody.name): "" %>">
             <span><%= errorsObject.nameError %></span>
                   
           </div>
           <div>  
-            <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here"></textarea>
+            <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here"><%- requestBody.blogpost ? helper.sanitize(requestBody.blogpost): "" %></textarea>
             <span><%= errorsObject.postError %></span>
                  
           </div>

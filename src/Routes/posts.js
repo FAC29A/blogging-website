@@ -6,7 +6,15 @@ const blogPosts = [];
 const errorsObject = {};
 
 router.get("/", (request, response) => {
-  response.render("posts", { title: "posts", blogPosts, errorsObject, helper });
+  // Not the best solution to declare empty object requestBody here
+  const requestBody = {};
+  response.render("posts", {
+    title: "posts",
+    blogPosts,
+    errorsObject,
+    requestBody,
+    helper,
+  });
 
   // const body = posts(blogPosts);
   // response.send(body);
