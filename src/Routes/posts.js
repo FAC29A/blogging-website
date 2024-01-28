@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const helper = require("../helper");
-// const { posts } = require("../template");
 const blogPosts = [];
 const errorsObject = {};
 

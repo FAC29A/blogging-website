@@ -12,12 +12,7 @@ function validation(errorMessage) {
   }
 }
 
-function miao(message) {
-  return message + "woooof";
-}
-
 module.exports = {
   sanitize,
   validation,
-  miao,
 };
