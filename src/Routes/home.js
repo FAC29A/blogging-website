@@ -4,8 +4,6 @@ const { home } = require("../template");
 
 router.get("/", (request, response) => {
   response.render("index", { title: "Home" });
-  // const body = home();
-  // response.send(body);
 });
 
 module.exports = router;

@@ -15,7 +15,6 @@ router.get("/", (request, response) => {
     requestBody,
     helper,
   });
-
   // const body = posts(blogPosts);
   // response.send(body);
 });
@@ -47,8 +46,6 @@ router.post("/", (request, response) => {
     console.log(blogPosts);
     // const errorBody = posts(blogPosts, errorsObject, request.body);
     // response.status(404).send(errorBody);
-    // try to use as middleware. a seperate function first check request if the body and name and blog post is empty, if any of the thing is empty, return
-    // erro object.   on the server side
   } else {
     const date = new Date();
     let displayDate = date.toDateString();
