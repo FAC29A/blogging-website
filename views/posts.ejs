@@ -36,6 +36,10 @@
                             <form action="/posts/delete/<%= post.postId %>" method="post">
                               <button type="submit">Delete</button>
                             </form>
+                            <button onclick="actOnPost(event)"  data-thisPostId="<%= post.postId %>">Like</button>
+                            <span id="likes-count-<%= post.postId %>"><%- post.likesCount %></span>
+
+
                           </div>            
                         </div>
                         <div class="post-body">
@@ -50,6 +54,45 @@
        
         </div>
     <script>
+        const updatePostStats = {
+            Like: postId => {
+               
+                Number(document.querySelector(`#likes-count-${postId}`).textContent)++;
+
+            
+            },
+            Unlike: postId => {Number(document.querySelector(`#likes-count-${postId}`).textContent)--;}
+
+        };
+
+        const toggleButtonText = {
+            Like: button => {button.textContent = "Unlike";},
+            Unlike: button => {button.textContent = "Like";}
+        };
+
+        const actOnPost = event => {
+        const postId = event.target.dataset.thisPostId;
+        const action = event.target.textContent.trim();
+        toggleButtonText[action](event.target);
+        updatePostStats[action](postId);
+
+        fetch(`/posts/act/${postId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ action }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        };
      
     </script>
     

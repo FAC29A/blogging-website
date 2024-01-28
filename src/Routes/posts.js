@@ -40,16 +40,14 @@ router.post("/", (request, response) => {
       requestBody,
       helper,
     });
-    console.log(errorsObject);
-    console.log(requestBody);
-    console.log(blogPosts);
     // const errorBody = posts(blogPosts, errorsObject, request.body);
     // response.status(404).send(errorBody);
   } else {
     const date = new Date();
     let displayDate = date.toDateString();
     const postId = date.getTime();
-    blogPosts.push({ name, blogpost, postId, displayDate });
+    let likesCount = 0;
+    blogPosts.push({ name, blogpost, postId, displayDate, likesCount });
     response.redirect("/posts");
   }
 });
@@ -62,6 +60,25 @@ router.post("/delete/:id", (req, res) => {
     res.redirect("/posts");
   } else {
     res.status(404).send("Post not found");
+  }
+});
+
+router.post("/act/:id", (req, res) => {
+  const postId = Number(req.params.id);
+  const action = req.body.action;
+
+  console.log("Received POST request to /posts/:id/act", { postId, action });
+  console.log("Received JSON payload:", req.body);
+
+  const index = blogPosts.findIndex((post) => post.postId === postId);
+  if (index !== -1) {
+    if (action === "Like") {
+      blogPosts[index].likesCount++;
+    } else if (action === "Unlike") {
+      blogPosts[index].likesCount--;
+    }
+    res.redirect("/posts");
+    // Send an empty response
   }
 });
 
