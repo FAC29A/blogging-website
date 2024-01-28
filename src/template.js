@@ -1,3 +1,9 @@
+// this files is no longer needed. we can delete it//
+// this files is no longer needed. we can delete it//
+// this files is no longer needed. we can delete it//
+// this files is no longer needed. we can delete it//
+// this files is no longer needed. we can delete it//
+
 function home() {
   const title = "Blogging Website Home";
   const content =
