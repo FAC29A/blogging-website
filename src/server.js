@@ -1,5 +1,4 @@
 const express = require("express");
-// const favicon = require("serve-favicon");
 const server = express();
 
 //register view engine
@@ -15,16 +14,11 @@ const postRoutes = require("./Routes/posts");
 
 server.use(bodyParser);
 server.use(staticHandler);
-// server.use(
-//   favicon(
-//     "/Users/lucien/Desktop/lucien-webpage/blogging-website/public/img/smiling-face.ico",
-//   ),
-// );
 server.use("/", homeRoutes);
 server.use("/posts", postRoutes);
 
 server.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", { title: "Route doesn't exist" });
 });
 
 module.exports = server;

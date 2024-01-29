@@ -53,7 +53,7 @@ router.post("/delete/:id", (req, res) => {
     blogPosts.splice(index, 1);
     res.redirect("/posts");
   } else {
-    res.status(404).render("404");
+    res.status(404).render("404", { title: "Route doesn't exist" });
   }
 });
 

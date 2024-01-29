@@ -1,94 +1,122 @@
 :root {
-    --page-color: #8dfbd1;
+  --page-color: #8dfbd1;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Archivo', sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Archivo", sans-serif;
+  box-sizing: border-box;
 }
 
 .container {
-    width: 380px;
-    margin: auto;
+  width: 380px;
+  margin: auto;
 }
 
 .title {
-    text-align: center;
-    margin-bottom: 2em;
-    padding-top: 3em;
+  text-align: center;
+  margin-bottom: 2em;
+  padding-top: 3em;
 }
 
 .title h1 {
-    margin-bottom: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 .input {
-    width: 100%;
-    padding: 16px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #F0F0F0;
-    color: #21221D;
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #21221d;
 }
 
 .submit-btn {
-    width: 150px;
-    padding: 16px;
-    margin-bottom: 1rem;
+  width: 150px;
+  padding: 16px;
+  margin-bottom: 1rem;
 }
 
 .posted-blogs {
-    background-color: black;
-    padding: 2em;
-    display: grid;
-    gap: 1rem;
+  background-color: black;
+  padding: 2em;
+  display: grid;
+  gap: 1rem;
 }
 
 .posts {
-    background-color: white;
+  background-color: white;
 }
 
 button {
-    width: 100px;
-
+  width: 100px;
 }
 
 body {
-    background-color: var(--page-color);
+  background-color: var(--page-color);
 }
 
-
-
 .post-header {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 .post-header-left {
-
-    display: flex;
-    gap: 2rem;
-
+  display: flex;
+  gap: 2rem;
 }
 
 .post-header-right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .post-body {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 100%;
 }
 
 .blog-post {
-    word-break: break-word;
+  word-break: break-word;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  background-color: black;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem; /* Footer height */
+  background-color: var(--page-color);
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5.5rem; /* Footer height */
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-font {
+  color: var(--page-color);
+  font-size: 1.5rem;
+}
+
+/* Error page  */
+.error-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  height: 50vh;
 }

@@ -2,6 +2,8 @@
 <html>
   <%- include("./partials/head.ejs") %>
   <body>
+    <div id="page-container">
+        <div id="content-wrap">
     <div class="container">
         <div class="title">
           <h1>Blog Posts</h1>
@@ -21,6 +23,7 @@
           <button class="submit-btn" type="submit">Submit</button>
         </form> 
       </div>  
+      </div>
         <div class="posted-blogs">
             <% if (blogPosts.length > 0) { %>
                 <% blogPosts.forEach(post => { %>
@@ -50,9 +53,10 @@
            
        
         </div>
-    <script>
-     
-    </script>
+
+
     
+    <%- include("./partials/footer.ejs") %>
+    </div>
   </body>
 </html>
