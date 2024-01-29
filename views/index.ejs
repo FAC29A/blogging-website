@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>Blog Posts</h1>
+        <h2>Post anything you like</h2>
+      </div>
+      <form action="/posts" method="POST">
+        <div>
+          <input class="input" name="name" type="text" placeholder="Nickname" />
+        </div>
+        <div>
+          <textarea
+            class="input"
+            name="blogpost"
+            type="textarea"
+            rows="4"
+            columns="50"
+            placeholder="Type your message here"
+          ></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -9,7 +9,7 @@ test("//route shoould return expected page ", async () => {
 
   assert.equal(response.status, 200);
   const body = await response.text();
-  assert.match(body, /Type your post here/);
+  assert.match(body, /Post anything you like/g);
 });
 
 test("/post route respond to POST request", async () => {
