@@ -5,7 +5,6 @@ const blogPosts = [];
 const errorsObject = {};
 
 router.get("/", (request, response) => {
-  // Not the best solution to declare empty object requestBody here
   const requestBody = {};
   response.render("posts", {
     title: "posts",
@@ -14,8 +13,6 @@ router.get("/", (request, response) => {
     requestBody,
     helper,
   });
-  // const body = posts(blogPosts);
-  // response.send(body);
 });
 
 router.post("/", (request, response) => {
@@ -40,11 +37,6 @@ router.post("/", (request, response) => {
       requestBody,
       helper,
     });
-    console.log(errorsObject);
-    console.log(requestBody);
-    console.log(blogPosts);
-    // const errorBody = posts(blogPosts, errorsObject, request.body);
-    // response.status(404).send(errorBody);
   } else {
     const date = new Date();
     let displayDate = date.toDateString();
@@ -61,11 +53,8 @@ router.post("/delete/:id", (req, res) => {
     blogPosts.splice(index, 1);
     res.redirect("/posts");
   } else {
-    res.status(404).send("Post not found");
+    res.status(404).render("404");
   }
 });
 
-module.exports = {
-  router: router,
-  blogPosts: blogPosts,
-};
+module.exports = router;
