@@ -2,6 +2,7 @@
 Welcome to our no-fuss, intuitive-focused blog posting website! Here, you can post everything you want with ease.
 
 The site is powered by Fly.io, ensuring seamless deployment and optimal performance.
+post-anything.fly.dev
 
 ## Home: (Route: /)
 Navigate to the home page, where you'll find a user-friendly form to input your name and blog content. 
