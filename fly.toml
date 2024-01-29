@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for post-anything-you-like on 2024-01-28T16:20:16Z
+# fly.toml app configuration file generated for post-anything on 2024-01-29T19:11:30Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'post-anything-you-like'
+app = 'post-anything'
 primary_region = 'lhr'
 
 [build]
