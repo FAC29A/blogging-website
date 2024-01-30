@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     name TEXT,
     blog_post TEXT,
     created_at DATETIME
+    likes INTEGER DEFAULT 0
 )
 
 COMMIT;
