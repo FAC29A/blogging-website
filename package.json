@@ -4,7 +4,8 @@
   "description": "Fran, Lucien, Lucy and Phoebe",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "DB_FILE=db.sqlite node database/seed.js"
   },
   "keywords": [],
   "author": "",
