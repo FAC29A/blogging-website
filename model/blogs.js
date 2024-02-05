@@ -29,9 +29,11 @@ WHERE id = $id
 
 `)
 
+
 function editTask(task) {
     return update_blog.get(task)
 }
+
 
 
 
