@@ -20,7 +20,8 @@ const errorsObject = {};
 //new server route- need to finish working this out!!
 router.get("/", (request, response) => {
   const blogs = model.displayBlogs();
-  // const requestBody = {};
+  const requestBody = {};
+  console.log(blogs)
   response.render("posts", {
     title: "posts",
     blogPosts,
@@ -65,9 +66,14 @@ router.get("/", (request, response) => {
 //new server route
 router.post("/", (request, response) => {
   const requestBody = request.body;
+  const name = request.body.name;
+  const blogpost = request.body.blogpost;
+
+
+  console.log(`requestbody: ${requestBody.name}`)
   const blogEntry = {
-    name: requestBody.name,
-    blogpost: requestBody.blogpost
+    name: name,
+    blogpost: blogpost
   }
   model.createBlog(blogEntry);
   response.redirect("/posts");
