@@ -25,15 +25,15 @@
       </div>  
       </div>
         <div class="posted-blogs">
-            <% if (blogPosts.length > 0) { %>
-                <% blogPosts.forEach(post => { %>
+            <% if (blogs.length > 0) { %>
+                <% blogs.forEach(post => { %>
                     <article class="posts" id="<%= post.postId %>">
                         <div class="post-header">
                           <div class="post-header-left">
                             <div class="person-name">
                                 <h3><%= post.name %></h3>
                             </div> 
-                            <div class="date"><%= post.displayDate %></div>
+                            <!-- <div class="date"><%= post.displayDate %></div> -->
                           </div>
                           <div class="post-header-right">
                             <form action="/posts/delete/<%= post.postId %>" method="post">

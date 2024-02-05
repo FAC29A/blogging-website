@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const helper = require("../helper");
 const model = require("../../model/blogs")
-const blogPosts = [];
+const blogPosts = []
 const errorsObject = {};
+
 
 //old server route
 // router.get("/", (request, response) => {
@@ -22,12 +23,14 @@ router.get("/", (request, response) => {
   const blogs = model.displayBlogs();
   const requestBody = {};
   console.log(blogs)
+  
   response.render("posts", {
     title: "posts",
     blogPosts,
     errorsObject,
     requestBody,
     helper,
+    blogs
   });
 });
 
@@ -69,14 +72,35 @@ router.post("/", (request, response) => {
   const name = request.body.name;
   const blogpost = request.body.blogpost;
 
+  console.log(`blogPosts: ${blogPosts}`)
 
-  console.log(`requestbody: ${requestBody.name}`)
+  // //validation and error handling
+  // const errorsObject = {};
+  // if (!name) {
+  //   errorsObject.nameError = "please enter your name";
+  //  }
+  //  if (!blogpost) {
+  //    errorsObject.postError = "please enter a message";
+  //  }
+
+  //  if (Object.keys(errorsObject).length > 0) {
+  //    response.render("posts", {
+  //      title: "posts",
+  //      blogPosts,
+  //      errorsObject,
+  //      requestBody,
+  //      helper,
+  //    });
+  //  } else {
   const blogEntry = {
     name: name,
     blogpost: blogpost
   }
+  console.log(`written: ${blogPosts}`)
+  console.log(blogEntry)
   model.createBlog(blogEntry);
   response.redirect("/posts");
+// }
 });
 
 
