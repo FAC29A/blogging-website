@@ -24,7 +24,7 @@ function displayBlogs () {
 //update functions here:
 const update_blog = db.prepare(/*sql*/`
 UPDATE blog_posts
-SET blog_post = $blog_post
+SET blogpost = $blogpost
 WHERE id = $id
 
 `)
@@ -42,15 +42,12 @@ function editTask(task) {
 
 
 
-
-
-
-
 //EXPORT YOUR FUNCTIONS!!
 
 module.exports = {
     createBlog,
-    displayBlogs
+    displayBlogs, 
+    editTask
 }
 
 
