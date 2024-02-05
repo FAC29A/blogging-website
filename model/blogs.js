@@ -22,13 +22,22 @@ function displayBlogs () {
     return read_blogs.all()
 }
 //update functions here:
+const update_blog = db.prepare(/*sql*/`
+UPDATE blog_posts
+SET blog_post = $blog_post
+WHERE id = $id
 
+`)
 
-
+function editTask(task) {
+    return update_blog.get(task)
+}
 
 
 
 //delete functions here:
+
+
 
 
 
