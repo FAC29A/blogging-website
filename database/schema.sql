@@ -2,9 +2,9 @@ BEGIN;
 
 CREATE TABLE IF NOT EXISTS blog_posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    blogpost TEXT,
-    created_at DATETIME,
+    name TEXT NOT NULL,
+    blogpost TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     likes INTEGER DEFAULT 0
 );
 
