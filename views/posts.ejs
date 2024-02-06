@@ -1,62 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <%- include("./partials/head.ejs") %>
   <body>
     <div id="page-container">
-        <div id="content-wrap">
-    <div class="container">
-        <div class="title">
-          <h1>Blog Posts</h1>
-          <h2>Post anything you like</h2>
+      <div id="content-wrap">
+        <div class="container">
+          <div class="title">
+            <h1>Blog Posts</h1>
+            <h2>Post anything you like</h2>
+          </div>
+          <form action="/posts" method="POST">
+            <div>
+              <input class="input" name="name" type="text"
+              placeholder="Nickname" value="<%- requestBody.name ?
+              helper.sanitize(requestBody.name): "" %>">
+              <span><%= errorsObject.nameError %></span>
+            </div>
+            <div>
+              <textarea
+                class="input"
+                name="blogpost"
+                type="textarea"
+                rows="4"
+                columns="50"
+                placeholder="Type your message here"
+              >
+<%- requestBody.blogpost ? helper.sanitize(requestBody.blogpost): "" %></textarea
+              >
+              <span><%= errorsObject.postError %></span>
+            </div>
+            <button class="submit-btn" type="submit">Submit</button>
+          </form>
         </div>
-        <form action="/posts" method="POST">
-          <div>
-            <input class="input" name="name" type="text" placeholder="Nickname" value="<%- requestBody.name ? helper.sanitize(requestBody.name): "" %>">
-            <span><%= errorsObject.nameError %></span>
-                  
-          </div>
-          <div>  
-            <textarea class="input" name="blogpost" type="textarea" rows="4" columns="50" placeholder="Type your message here"><%- requestBody.blogpost ? helper.sanitize(requestBody.blogpost): "" %></textarea>
-            <span><%= errorsObject.postError %></span>
-                 
-          </div>
-          <button class="submit-btn" type="submit">Submit</button>
-        </form> 
-      </div>  
       </div>
-        <div class="posted-blogs">
-            <% if (blogs.length > 0) { %>
-                <% blogs.forEach(post => { %>
-                    <article class="posts" id="<%= post.postId %>">
-                        <div class="post-header">
-                          <div class="post-header-left">
-                            <div class="person-name">
-                                <h3><%= post.name %></h3>
-                            </div> 
-                            <div class="date"><%= post.created_at %></div>
-                          </div>
-                          <div class="post-header-right">
-                            <form action="/posts/delete/<%= post.postId %>" method="post">
-                              <button type="submit">Delete</button>
-                            </form>
-                          </div>            
-                        </div>
-                        <div class="post-body">
-                          <p class="blog-post"><%= post.blogpost %></p>
-                        </div>
-                      </article>
-                  
-                <% }) %>
+      <div class="posted-blogs">
+        <% if (blogs.length > 0) { %> <% blogs.forEach(post => { %>
+        <article class="posts" id="<%= post.id %>">
+          <div class="post-header">
+            <div class="post-header-left">
+              <div class="person-name">
+                <h3><%= post.name %></h3>
+              </div>
+              <div class="date"><%= post.created_at %></div>
+            </div>
+            <div class="post-header-right">
+              <form action="/posts/delete/<%= post.id %>" method="post">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+          <div class="post-body">
+            <p class="blog-post"><%= post.blogpost %></p>
+          </div>
+        </article>
 
-            <% } %>
+        <% }) %> <% } %>
+      </div>
 
-           
-       
-        </div>
-
-
-    
-    <%- include("./partials/footer.ejs") %>
+      <%- include("./partials/footer.ejs") %>
     </div>
   </body>
 </html>

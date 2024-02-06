@@ -14,7 +14,8 @@ function createBlog (blog) {
 
 //read functions here:
 const read_blogs = db.prepare(/*sql*/ `
-    SELECT 
+    SELECT
+    id,
     name, 
     blogpost, 
     DATE(created_at) AS created_at, 
@@ -38,20 +39,24 @@ function editTask(task) {
     return update_blog.get(task)
 }
 
-
-
-
 //delete functions here:
 
+const delete_blog = db.prepare(/*sql*/`
+DELETE FROM blog_posts
+WHERE id = ?
+`)
 
-
+function deleteTask(id) {
+    return delete_blog.run(id)
+}
 
 //EXPORT YOUR FUNCTIONS!!
 
 module.exports = {
     createBlog,
     displayBlogs, 
-    editTask
+    editTask,
+    deleteTask
 }
 
 

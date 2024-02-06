@@ -104,15 +104,14 @@ router.post("/", (request, response) => {
 });
 
 
+
+
 router.post("/delete/:id", (req, res) => {
   const postId = Number(req.params.id);
-  const index = blogPosts.findIndex((post) => post.postId === postId);
-  if (index > -1) {
-    blogPosts.splice(index, 1);
-    res.redirect("/posts");
-  } else {
-    res.status(404).render("404", { title: "Route doesn't exist" });
-  }
+  console.log(postId);
+  model.deleteTask(postId);
+  res.redirect("/posts");
+  
 });
 
 module.exports = router;
