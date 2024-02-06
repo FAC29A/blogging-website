@@ -14,7 +14,11 @@ function createBlog (blog) {
 
 //read functions here:
 const read_blogs = db.prepare(/*sql*/ `
-    SELECT name, blogpost, created_at, likes
+    SELECT 
+    name, 
+    blogpost, 
+    DATE(created_at) AS created_at, 
+    likes
     FROM blog_posts
 `)
 
