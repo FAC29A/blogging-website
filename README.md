@@ -20,13 +20,13 @@ Food / coffee recommendations around Founders & Coders
 Founders & Coders events calendar
 ## Acceptance Criteria 
 - [ ] A form for users to submit data
-- [ ]A page showing all the data
-- [ ]Semantic form elements with correctly associated labels
-- [ ]A SQLite database, deployed to fly.io as a persistent volume
-- [ ]A schema describing your database in your README
-- [ ]Tests for server routes and database access
-- [ ]Not process user input as SQL commands
-- [ ]Hidden environment variables (i.e. not on GitHub)
+- [ ] A page showing all the data
+- [ ] Semantic form elements with correctly associated labels
+- [ ] A SQLite database, deployed to fly.io as a persistent volume
+- [ ] A schema describing your database in your README
+- [ ] Tests for server routes and database access
+- [ ] Not process user input as SQL commands
+- [ ] Hidden environment variables (i.e. not on GitHub)
 ## Stretch criteria 
-- [ ]A way to view filtered/sorted data, instead of just all of it
-- [ ]GitHub Actions CI setup to run your tests when you push
+- [ ] A way to view filtered/sorted data, instead of just all of it
+- [ ] GitHub Actions CI setup to run your tests when you push
