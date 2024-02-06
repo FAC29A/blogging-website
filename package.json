@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "DB_FILE=db.sqlite node database/seed.js"
+    "seed": "DB_FILE=db.sqlite node database/seed.js", 
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "dotenv": "^16.4.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "nodemon": "^3.0.3",
     "normalize.css": "^8.0.1",
     "serve-favicon": "^2.5.0"
   },

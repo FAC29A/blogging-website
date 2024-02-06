@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const helper = require("../helper");
 const model = require("../../model/blogs")
-const blogPosts = [];
+const blogPosts = []
 const errorsObject = {};
+
 
 //old server route
 // router.get("/", (request, response) => {
@@ -20,13 +21,16 @@ const errorsObject = {};
 //new server route- need to finish working this out!!
 router.get("/", (request, response) => {
   const blogs = model.displayBlogs();
-  // const requestBody = {};
+  const requestBody = {};
+  console.log(blogs)
+  
   response.render("posts", {
     title: "posts",
     blogPosts,
     errorsObject,
     requestBody,
     helper,
+    blogs
   });
 });
 
@@ -65,24 +69,49 @@ router.get("/", (request, response) => {
 //new server route
 router.post("/", (request, response) => {
   const requestBody = request.body;
+  const name = request.body.name;
+  const blogpost = request.body.blogpost;
+
+  console.log(`blogPosts: ${blogPosts}`)
+
+  // //validation and error handling
+  // const errorsObject = {};
+  // if (!name) {
+  //   errorsObject.nameError = "please enter your name";
+  //  }
+  //  if (!blogpost) {
+  //    errorsObject.postError = "please enter a message";
+  //  }
+
+  //  if (Object.keys(errorsObject).length > 0) {
+  //    response.render("posts", {
+  //      title: "posts",
+  //      blogPosts,
+  //      errorsObject,
+  //      requestBody,
+  //      helper,
+  //    });
+  //  } else {
   const blogEntry = {
-    name: requestBody.name,
-    blogpost: requestBody.blogpost
+    name: name,
+    blogpost: blogpost
   }
+  console.log(`written: ${blogPosts}`)
+  console.log(blogEntry)
   model.createBlog(blogEntry);
   response.redirect("/posts");
+// }
 });
+
+
 
 
 router.post("/delete/:id", (req, res) => {
   const postId = Number(req.params.id);
-  const index = blogPosts.findIndex((post) => post.postId === postId);
-  if (index > -1) {
-    blogPosts.splice(index, 1);
-    res.redirect("/posts");
-  } else {
-    res.status(404).render("404", { title: "Route doesn't exist" });
-  }
+  console.log(postId);
+  model.deleteTask(postId);
+  res.redirect("/posts");
+  
 });
 
 module.exports = router;

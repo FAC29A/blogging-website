@@ -1,25 +1,32 @@
-# blogging-website
-Welcome to our no-fuss, intuitive-focused blog posting website! Here, you can post everything you want with ease.
+# SQL schema
 
-The site is powered by Fly.io, ensuring seamless deployment and optimal performance.
-[Link here](https://post-anything.fly.dev)
-
-
-## Home: (Route: /)
-Navigate to the home page, where you'll find a user-friendly form to input your name and blog content. 
-<img width="659" alt="Screenshot 2024-01-29 at 21 23 49" src="https://github.com/FAC29A/blogging-website/assets/128807685/ac1e7428-5e8e-4cb1-afc0-3644d58ad579">
-
-Our validation function will check for any missing information and prompt you accordingly.
-<img width="659" alt="Screenshot 2024-01-29 at 21 26 26" src="https://github.com/FAC29A/blogging-website/assets/128807685/acc87ec1-aaad-4da6-bad8-a22a47dc6d29">
-
-## Post: (Route: /posts)
-Discover a collection of posts where you can read and even delete your own contributions.
-<img width="661" alt="Screenshot 2024-01-29 at 21 25 38" src="https://github.com/FAC29A/blogging-website/assets/128807685/0ee0f579-1ae5-44ef-b191-89da7ec1a2ec">
-
-
-## Error: (404)
-In case of an incorrect route, you'll be directed to our 404 page, ensuring a smooth browsing experience.
-<img width="662" alt="Screenshot 2024-01-29 at 21 26 41" src="https://github.com/FAC29A/blogging-website/assets/128807685/9fad34ad-332d-419d-9712-6f6c7254fa3b">
-
-
-
+Your project this week is to build a web app that stores data in a SQLite database.
+## Spike 
+Before you start writing features you need to design the schema for your data. Think about what different things your app needs to store, how they relate to each other, and how you can avoid duplicating information. Record your schema in your README.md using Markdown tables. Consider embedding a diagram to help visualise the relationships.
+## Questions to consider 
+What kinds of data relationships are there?
+What’s a foreign key? How can they help us design schemas with relational data?
+Useful resources 
+## Database Relationships
+A beginner’s guide to many-to-many relationships
+## User stories 
+### Core 
+As a user, I want to: submit information to your site for anyone to see
+As a user, I want to: come back to your site later and see what I posted is still there
+Since this project is open-ended you’ll need to write your own more specific user stories once you know what you want to build.
+## Example project ideas 
+Founders & Coders book sharing system
+Food / coffee recommendations around Founders & Coders
+Founders & Coders events calendar
+## Acceptance Criteria 
+- [ ] A form for users to submit data
+- [ ] A page showing all the data
+- [ ] Semantic form elements with correctly associated labels
+- [ ] A SQLite database, deployed to fly.io as a persistent volume
+- [ ] A schema describing your database in your README
+- [ ] Tests for server routes and database access
+- [ ] Not process user input as SQL commands
+- [ ] Hidden environment variables (i.e. not on GitHub)
+## Stretch criteria 
+- [ ] A way to view filtered/sorted data, instead of just all of it
+- [ ] GitHub Actions CI setup to run your tests when you push
