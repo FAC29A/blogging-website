@@ -19,7 +19,7 @@ Founders & Coders book sharing system
 Food / coffee recommendations around Founders & Coders
 Founders & Coders events calendar
 ## Acceptance Criteria 
-[]A form for users to submit data
+[] A form for users to submit data
 []A page showing all the data
 []Semantic form elements with correctly associated labels
 []A SQLite database, deployed to fly.io as a persistent volume
